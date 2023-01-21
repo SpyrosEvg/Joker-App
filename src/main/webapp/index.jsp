@@ -7,7 +7,13 @@ Home Page
 
 <h3>Index Page </h3>
 <hr>
-<a href="${pageContext.request.contextPath}/joker/test">Test</a>
+
+<a href="${pageContext.request.contextPath}/joker/SpecificDraw">SpecificDraw</a>
+
+<a href="${pageContext.request.contextPath}/joker/lastGame">LastGame</a>
+
+<a href="${pageContext.request.contextPath}/joker/JokerMonth">JokerMonth</a>
+
 
 
 </body>
