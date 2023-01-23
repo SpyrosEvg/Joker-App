@@ -5,21 +5,23 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class prizeCategories {
 	
-	private int id;
+	private String id;
 	private float divident;
 	private int winners;
 	private double distributed;
 	private double jackpot;
 	
+
+	
 	public prizeCategories() {
 		
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -54,6 +56,5 @@ public class prizeCategories {
 	public void setJackpot(double jackpot) {
 		this.jackpot = jackpot;
 	}
-	
-	
+
 }
