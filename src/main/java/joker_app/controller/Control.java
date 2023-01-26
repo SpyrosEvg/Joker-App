@@ -17,12 +17,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mchange.lang.ArrayUtils;
+
 
 import joker_app.entity.Content;
 import joker_app.entity.Joker;
 import joker_app.entity.LastJoker;
 import joker_app.entity.MonthJokers;
+import joker_app.entity.Numbers;
+import joker_app.entity.Stats;
 import joker_app.entity.prizeCategories;
 
 
@@ -163,6 +165,7 @@ public class Control {
 				    theModel.addAttribute("id",id);
 				    theModel.addAttribute("drawTime",drawTime);
 				    theModel.addAttribute("numberList", numberList);
+				    theModel.addAttribute("bonus", bonus);
 				    theModel.addAttribute("prize", prizeList);
 				}
 			}
@@ -173,6 +176,45 @@ public class Control {
 		}
 		
 		return "JokerMonth";
+	}
+	
+	@GetMapping("/Statistics")
+	public String Statistics(Model theModel) {
+		
+		try {
+			URL jsonUrl = new URL("https://api.opap.gr/games/v1.0/5104/statistics");
+			
+			ObjectMapper mapper = new ObjectMapper();
+
+			//read Json file and convert to java pojo
+			Stats theStats = mapper.readValue(jsonUrl, Stats.class);
+			
+			
+			
+			Numbers[] numbers = theStats.getNumbers();
+			
+			theModel.addAttribute("numbers",numbers);
+			
+			for(Numbers num : numbers) {
+				int occurrences = num.getOccurrences();
+				int number = num.getNumber();
+				
+				theModel.addAttribute("occurrences",occurrences);
+				theModel.addAttribute("number",number);
+				
+			}
+			
+			
+			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return "Statistics";
 	}
 	
 public void SwitchIdWithCategories(prizeCategories[] prizeList) {

@@ -14,6 +14,7 @@ Home Page
 
 <a href="${pageContext.request.contextPath}/joker/JokerMonth">JokerMonth</a>
 
+<a href="${pageContext.request.contextPath}/joker/Statistics">Statistics</a>
 
 
 </body>

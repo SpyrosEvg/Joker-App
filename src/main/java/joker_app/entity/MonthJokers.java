@@ -12,7 +12,6 @@ public class MonthJokers {
 		
 	}
 
-
 	public Content[] getContent() {
 		return content;
 	}
@@ -21,7 +20,5 @@ public class MonthJokers {
 		this.content = content;
 	}
 
-	
-	
 	
 }
